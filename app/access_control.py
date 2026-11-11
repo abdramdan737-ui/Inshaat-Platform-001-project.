@@ -1,26 +1,31 @@
 # -*- coding: utf-8 -*-
-"""بوابة اشتراك: تسجيل بالهاتف ← دفع مباشر (P2P) ← تفعيل يدوي من المشرف بعد التحقق ← دخول.
+import streamlit as st
 
-الاستخدام في main.py (بعد st.set_page_config مباشرة):
-    from access_control import require_access
-    user = require_access()          # يوقف التنفيذ إن لم يكن المستخدم مفعّلاً
+def require_access():
+    if st.session_state.get("logged_in", False):
+        return True
 
-الأسرار (Streamlit Cloud ← Settings ← Secrets):
-    ADMIN_PASSWORD = "abosadeer_1987"  
-    WHATSAPP = "9647701234567"               # رقم الاستلام بالصيغة الدولية بلا +
-    SUPABASE_URL = "https://znrpogzykevvvvtrrlrx.supabase.co"
-    SUPABASE_KEY = "service_role key"        # لا تضعه في الكود أبداً
-    [payment]
-    "زين كاش" = "07xx xxx xxxx - باسم ..."
-    "كي كارد" = "رقم البطاقة/الحساب"
+    st.subheader("تسجيل الدخول للمنصة")
+    
+    trial_code = st.text_input("أدخل رمز التجربة المجانية (إن وجد):", type="password")
+    
+    if "trial_uses" not in st.session_state:
+        st.session_state["trial_uses"] = 2  # عدد مرات الدخول المجاني (مرتان)
 
-جداول Supabase (SQL Editor):
-    create table users(phone text primary key, name text, pin_hash text, salt text, status text,
-      expires_at text, fail_count int default 0, locked_until text, sess text, created_at text);
-    create table requests(id text primary key, phone text, plan text, amount int, method text,
-      code text, status text, created_at text, decided_at text);
-    alter table users enable row level security;  alter table requests enable row level security;
-"""
+    if st.button("تفعيل الدخول التجريبي"):
+        if trial_code == "123456":  # الرمز التجريبي الخاص بك
+            if st.session_state["trial_uses"] > 0:
+                st.session_state["logged_in"] = True
+                st.session_state["user_role"] = "trial"
+                st.session_state["trial_uses"] -= 1
+                st.success(f"تم الدخول بنجاح! المحاولات المتبقية: {st.session_state['trial_uses']}")
+                st.rerun()
+            else:
+                st.error("لقد استنفدت الحد الأقصى لمرات الدخول التجريبي.")
+        else:
+            st.error("الرمز التجريبي غير صحيح.")
+            
+    st.stop()
 import hashlib, hmac, os, re, secrets, sqlite3, time, urllib.parse
 from datetime import datetime, timedelta, timezone
 import pandas as pd
