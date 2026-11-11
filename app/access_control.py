@@ -6,7 +6,7 @@
     user = require_access()          # يوقف التنفيذ إن لم يكن المستخدم مفعّلاً
 
 الأسرار (Streamlit Cloud ← Settings ← Secrets):
-    ADMIN_PASSWORD = "123456"          # كلمة مرور المشرف
+    ADMIN_PASSWORD = "abosadeer_1987"          # كلمة مرور المشرف
     WHATSAPP = "9647740884754"               # رقم الاستلام بالصيغة الدولية بلا +
     SUPABASE_URL = "https://znrpogzykevvvvtrrlrx.supabase.co"
     SUPABASE_KEY = "sb_secret_BF3vfibvJD2KCJajNDrwyw_bWk-1HyY"        # لا تضعه في الكود أبداً
