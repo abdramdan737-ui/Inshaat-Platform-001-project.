@@ -333,12 +333,12 @@ def render_feasibility():
             tpl = c[0].selectbox("القالب القطاعي", list(TEMPLATES), key="tpl")
             D = TEMPLATES[tpl]
             size = c[1].number_input(D["size_label"], 1.0, value=float(D["size"]), step=1.0, key=f"size_{tpl}")
-            owner = c[2].selectbox("جهة التنفيذ", ["قطاع خاص", "قطاع عام/بلدية", "شراكة PPP", "استثمار مرخص (هيئة الاستثمار)"])
+            owner = c[2].selectbox("جهة التنفيذ", ["قطاع خاص", "قطاع عام/بلدية", "شراكة ", "استثمار مرخص (هيئة الاستثمار)"])
             name = st.text_input("اسم المشروع")
             sector = tpl
             tb = build_template(tpl, size)
             k = f"{tpl}_{size:.0f}"
-            st.info(D["note"] + "  |  الأرقام إرشادية، عايِرها بالـ BOQ وأسعار السوق المحلية.")
+            st.info(D["note"] + "  |  الأرقام إرشادية وحسب أسعار السوق المحلية.")
             c = st.columns(2)
             Nc = c[0].number_input("مدة الإنشاء (سنة)", 1, 10, int(D["Nc"]), key=f"nc_{tpl}")
             No = c[1].number_input("عمر التشغيل (سنة)", 1, 80, int(D["No"]), key=f"no_{tpl}")
