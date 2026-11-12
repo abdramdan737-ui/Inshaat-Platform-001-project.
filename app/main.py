@@ -8,9 +8,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
-
-from modules.feasibility_ui import render_feasibility
-
 # تحميل ملف CSS مباشرة دون الاعتماد على assets.ui_style.py
 BASE_DIR = Path(__file__).resolve().parent
 CSS_PATH = BASE_DIR / "assets" / "styles.css"
