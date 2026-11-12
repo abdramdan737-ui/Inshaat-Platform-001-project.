@@ -1,7 +1,15 @@
 # -*- coding: utf-8 -*-
 from pathlib import Path
 import streamlit as st
+import sys
+from pathlib import Path
 
+APP_DIR = Path(__file__).resolve().parent
+
+if str(APP_DIR) not in sys.path:
+    sys.path.insert(0, str(APP_DIR))
+
+from modules.feasibility_ui import render_feasibility
 st.set_page_config(
     page_title="منصة إنشاءات للاستشارات الهندسية",
     page_icon="🏗️",
