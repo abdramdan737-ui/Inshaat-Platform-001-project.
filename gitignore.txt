@@ -1,0 +1,8 @@
+# انسخ هذا الملف إلى E:\001\main وسمّه .gitignore (بنقطة في أوله، بلا امتداد)
+.streamlit/secrets.toml
+.env
+local_access.db
+data/
+__pycache__/
+*.pyc
+main_backup.py

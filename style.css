@@ -1,0 +1,132 @@
+/* =====================================================================
+   style.css — كل تنسيقات التطبيق في ملف واحد. عدّل هنا فقط (يتحدّث تلقائياً).
+   للخط Cairo أزل التعليق عن السطر التالي (يحتاج اتصالاً بالإنترنت):
+   @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+   ===================================================================== */
+
+:root {
+    --tab-primary: #1e5bd8;   /* لون إطار القرص والقرص المحدد */
+    --tab-soft: #eaf0fb;      /* خلفية الأقراص غير المحددة */
+    --tab-text: #1e3a8a;      /* نص القرص غير المحدد */
+}
+
+/* 1. خلفية الصفحة العامة */
+.stApp {
+    background-color: #F8F9FA !important;
+}
+
+/* 2. النصوص والعناوين */
+h1 { color: #1589FF !important; opacity: 1 !important; }
+h2 { color: #8D38C9 !important; opacity: 1 !important; }
+h3, h4, h5, h6 { color: #1E3A8A !important; opacity: 1 !important; }
+p { color: #1E293B !important; opacity: 1 !important; }
+span { color: #0284C7 !important; opacity: 1 !important; }
+label { color: #475569 !important; opacity: 1 !important; }
+
+/* 3. تثبيت ألوان الأزرار والأيقونات */
+.stButton>button, .stDownloadButton>button {
+    background-color: #E799A3 !important;
+    color: white !important;
+    opacity: 1 !important;
+    border: 2px solid #2596be !important;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* 4. تأثير عند تمرير الماوس فوق الأزرار */
+.stButton>button:hover, .stDownloadButton>button:hover {
+    background-color: #57E964 !important;
+    border-color: #bf2443 !important;
+    color: white !important;
+    opacity: 1 !important;
+}
+
+/* 5. الشريط الجانبي */
+[data-testid="stSidebar"] {
+    background-color: #1E3A8A !important;
+}
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] label {
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 750 !important;
+}
+
+/* 6. حقول الإدخال */
+div[data-baseweb="input"] > div,
+div[data-baseweb="base-input"] {
+    background-color: #FDFBF7 !important;
+    border: 1px solid #CBD5E1 !important;
+}
+input, textarea {
+    color: #000000 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+
+/* 7. القوائم المنسدلة (Selectbox) */
+div[data-baseweb="select"] > div {
+    background-color: #FDFBF7 !important;
+    border: 1px solid #CBD5E1 !important;
+    color: #1E3A8A !important;
+}
+div[data-baseweb="select"] span {
+    color: #1E3A8A !important;
+    opacity: 1 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+div[data-baseweb="select"] > div:hover {
+    background-color: #FFFFFF !important;
+    border-color: #1589FF !important;
+}
+
+/* 8. التبويبات: أقراص بيضوية تملأ عرض الصفحة */
+[data-testid="stTabs"] [role="tablist"] {
+    width: 100%; gap: 10px !important; padding: 6px 2px 10px 2px !important; border-bottom: none !important;
+}
+[data-testid="stTabs"] [role="tablist"]::after,
+[data-testid="stTabs"] .react-aria-SelectionIndicator,
+[data-testid="stTabs"] [data-baseweb="tab-highlight"],
+[data-testid="stTabs"] [data-baseweb="tab-border"] { display: none !important; }
+[data-testid="stTabs"] [role="tab"] {
+    flex: 1 0 auto !important; justify-content: center !important; height: auto !important; margin: 0 !important;
+    padding: 10px 22px !important; border-radius: 999px !important;
+    background: var(--tab-soft) !important; border: 2px solid var(--tab-primary) !important;
+    transition: background .15s, transform .1s;
+}
+[data-testid="stTabs"] [role="tab"] p {
+    margin: 0 !important; font-weight: 700 !important; font-size: 1rem !important;
+    color: var(--tab-text) !important; white-space: nowrap;
+}
+[data-testid="stTabs"] [role="tab"]:hover { background: #d6e2f8 !important; transform: translateY(-1px); }
+[data-testid="stTabs"] [role="tab"][aria-selected="true"],
+[data-testid="stTabs"] [role="tab"][data-selected] { background: var(--tab-primary) !important; }
+[data-testid="stTabs"] [role="tab"][aria-selected="true"] p,
+[data-testid="stTabs"] [role="tab"][data-selected] p { color: #ffffff !important; }
+
+/* 9. المربعات (الإصدارات الحديثة): حدود رفيعة وخلفية فاتحة بدل الداكنة السميكة */
+[data-testid="stNumberInputContainer"],
+[data-testid="stTextInputRootElement"],
+[data-testid="stTextAreaRootElement"] {
+    background-color: #FDFBF7 !important;
+    border: 1px solid #CBD5E1 !important;     /* سمك الحد: غيّر 1px */
+    border-radius: 8px !important;
+    box-shadow: none !important;
+}
+[data-testid="stNumberInputStepUp"],
+[data-testid="stNumberInputStepDown"] {
+    background-color: #EEF2F9 !important;     /* أزرار + و − */
+    color: #1E3A8A !important;
+    border: none !important;
+}
+[data-testid="stExpander"] details {
+    border: 1px solid #CBD5E1 !important;
+    background-color: #FFFFFF !important;
+}
+[data-testid="stExpander"] summary {
+    background-color: #EEF2F9 !important;     /* عنوان القسم القابل للطي */
+}
+[data-testid="stExpander"] summary p,
+[data-testid="stExpander"] summary span { color: #1E3A8A !important; }
