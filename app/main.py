@@ -2,6 +2,7 @@
 from pathlib import Path
 import streamlit as st
 st.set_page_config(
+from modules.feasibility_ui import render_feasibility
     page_title="منصة إنشاءات للاستشارات الهندسية",
     page_icon="🏗️",
     layout="wide",
