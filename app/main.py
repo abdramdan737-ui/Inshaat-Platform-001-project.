@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from pathlib import Path
 import streamlit as st
-from modules.feasibility_ui import render_feasibility
 st.set_page_config(
     page_title="منصة إنشاءات للاستشارات الهندسية",
     page_icon="🏗️",
