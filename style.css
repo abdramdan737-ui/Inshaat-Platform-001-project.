@@ -1,0 +1,328 @@
+
+/* ==========================================================
+   منصة إنشاءات للاستشارات الهندسية
+   الملف الموحد لجميع تنسيقات التطبيق
+   ========================================================== */
+
+/* الألوان */
+:root {
+    --primary: #1E3A8A;
+    --primary-light: #2563EB;
+    --page-bg: #F0F4F8;
+
+    --tab-primary: #1E5BD8;
+    --tab-soft: #EAF0FB;
+    --tab-text: #1E3A8A;
+
+    --sidebar-bg: #1E3A8A;
+    --radio-bg: #EAF0FB;
+    --radio-border: #B9CCE8;
+    --radio-text: #17365D;
+    --radio-selected-bg: #FFFFFF;
+    --radio-selected-text: #1E3A8A;
+}
+
+/* 1. خلفية الصفحة */
+.stApp {
+    background-color: var(--page-bg) !important;
+}
+
+/* 2. مساحة المحتوى */
+.block-container {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+/* 3. العناوين */
+.stApp h1 {
+    color: #1589FF !important;
+}
+
+.stApp h2 {
+    color: #8D38C9 !important;
+}
+
+.stApp h3,
+.stApp h4,
+.stApp h5,
+.stApp h6 {
+    color: #1E3A8A !important;
+}
+
+/* 4. الأزرار */
+.stButton > button,
+.stFormSubmitButton > button,
+.stDownloadButton > button {
+    background-color: #1E3A8A !important;
+    color: #FFFFFF !important;
+    border: 2px solid #1E3A8A !important;
+    border-radius: 12px !important;
+    font-weight: bold !important;
+    padding: 8px 18px !important;
+    transition: all 0.25s ease !important;
+}
+
+.stButton > button:hover,
+.stFormSubmitButton > button:hover,
+.stDownloadButton > button:hover {
+    background-color: #2563EB !important;
+    border-color: #2563EB !important;
+    color: #FFFFFF !important;
+}
+
+.stButton > button p,
+.stFormSubmitButton > button p,
+.stDownloadButton > button p {
+    color: #FFFFFF !important;
+}
+
+/* 5. المؤشرات المالية */
+[data-testid="stMetricValue"] {
+    color: #1E3A8A !important;
+}
+
+[data-testid="stMetricLabel"] {
+    color: #334155 !important;
+}
+
+/* ==========================================================
+   6. الشريط الجانبي
+   ========================================================== */
+
+[data-testid="stSidebar"] {
+    background-color: var(--sidebar-bg) !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stSidebarContent"] {
+    background-color: var(--sidebar-bg) !important;
+}
+
+/* عنوان المنصة في الشريط الجانبي */
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3 {
+    color: #FFFFFF !important;
+}
+
+/* النصوص والمعلومات العامة في الشريط */
+[data-testid="stSidebar"] .stMarkdown p,
+[data-testid="stSidebar"] .stCaption,
+[data-testid="stSidebar"] .stAlert p {
+    color: #FFFFFF !important;
+}
+
+/* ==========================================================
+   7. خيارات الأقسام st.radio
+   ========================================================== */
+
+/* حاوية الاختيار */
+[data-testid="stSidebar"] [data-testid="stRadio"] {
+    width: 100% !important;
+}
+
+/* عنوان: اختر القسم المطلوب */
+[data-testid="stSidebar"] [data-testid="stRadio"] > label {
+    display: block !important;
+    color: #FFFFFF !important;
+    font-size: 17px !important;
+    font-weight: 800 !important;
+    margin-bottom: 14px !important;
+}
+
+/* مجموعة الخيارات */
+[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 13px !important;
+    width: 100% !important;
+}
+
+/* بطاقة كل خيار */
+[data-testid="stSidebar"] [data-testid="stRadio"]
+[role="radiogroup"] label {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-height: 58px !important;
+    box-sizing: border-box !important;
+
+    padding: 12px 15px !important;
+    margin: 0 !important;
+
+    background: var(--radio-bg) !important;
+    border: 2px solid var(--radio-border) !important;
+    border-radius: 14px !important;
+
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+/* إخفاء دائرة الاختيار */
+[data-testid="stSidebar"] [data-testid="stRadio"]
+[role="radiogroup"] label > div:first-child {
+    display: none !important;
+}
+
+/* نص الخيار */
+[data-testid="stSidebar"] [data-testid="stRadio"]
+[role="radiogroup"] label p {
+    color: var(--radio-text) !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+}
+
+/* الخيار المحدد */
+[data-testid="stSidebar"] [data-testid="stRadio"]
+[role="radiogroup"] label:has(input:checked) {
+    background: var(--radio-selected-bg) !important;
+    border: 2px solid #FFFFFF !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* نص الخيار المحدد */
+[data-testid="stSidebar"] [data-testid="stRadio"]
+[role="radiogroup"] label:has(input:checked) p {
+    color: var(--radio-selected-text) !important;
+    font-weight: 800 !important;
+}
+
+/* عند مرور الماوس */
+[data-testid="stSidebar"] [data-testid="stRadio"]
+[role="radiogroup"] label:hover {
+    border-color: #60A5FA !important;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================
+   8. حقول الإدخال
+   ========================================================== */
+
+div[data-baseweb="input"] > div,
+div[data-baseweb="base-input"] {
+    background-color: #FDFBF7 !important;
+    border: 1px solid #CBD5E1 !important;
+    border-radius: 8px !important;
+}
+
+input,
+textarea {
+    color: #000000 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+
+/* ==========================================================
+   9. القوائم المنسدلة
+   ========================================================== */
+
+div[data-baseweb="select"] > div {
+    background-color: #FDFBF7 !important;
+    border: 1px solid #CBD5E1 !important;
+    color: #1E3A8A !important;
+}
+
+div[data-baseweb="select"] span {
+    color: #1E3A8A !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+
+div[data-baseweb="select"] > div:hover {
+    background-color: #FFFFFF !important;
+    border-color: #1589FF !important;
+}
+
+/* ==========================================================
+   10. التبويبات Tabs
+   ========================================================== */
+
+[data-testid="stTabs"] [role="tablist"] {
+    display: flex !important;
+    width: 100% !important;
+    gap: 10px !important;
+    padding: 6px 2px 10px 2px !important;
+    border-bottom: none !important;
+}
+
+[data-testid="stTabs"] [role="tablist"]::after,
+[data-testid="stTabs"] .react-aria-SelectionIndicator,
+[data-testid="stTabs"] [data-baseweb="tab-highlight"],
+[data-testid="stTabs"] [data-baseweb="tab-border"] {
+    display: none !important;
+}
+
+[data-testid="stTabs"] [role="tab"] {
+    flex: 1 1 0 !important;
+    justify-content: center !important;
+    min-height: 45px !important;
+    padding: 10px 15px !important;
+    margin: 0 !important;
+
+    border-radius: 999px !important;
+    background: var(--tab-soft) !important;
+    border: 2px solid var(--tab-primary) !important;
+    transition: background 0.2s, transform 0.2s !important;
+}
+
+[data-testid="stTabs"] [role="tab"] p {
+    margin: 0 !important;
+    color: var(--tab-text) !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    white-space: nowrap !important;
+}
+
+[data-testid="stTabs"] [role="tab"]:hover {
+    background: #D6E2F8 !important;
+    transform: translateY(-1px);
+}
+
+[data-testid="stTabs"] [role="tab"][aria-selected="true"] {
+    background: var(--tab-primary) !important;
+}
+
+[data-testid="stTabs"] [role="tab"][aria-selected="true"] p {
+    color: #FFFFFF !important;
+}
+
+/* ==========================================================
+   11. مربعات الإدخال الحديثة
+   ========================================================== */
+
+[data-testid="stNumberInputContainer"],
+[data-testid="stTextInputRootElement"],
+[data-testid="stTextAreaRootElement"] {
+    background-color: #FDFBF7 !important;
+    border: 1px solid #CBD5E1 !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+}
+
+[data-testid="stNumberInputStepUp"],
+[data-testid="stNumberInputStepDown"] {
+    background-color: #EEF2F9 !important;
+    color: #1E3A8A !important;
+    border: none !important;
+}
+
+/* ==========================================================
+   12. الأقسام القابلة للطي Expander
+   ========================================================== */
+
+[data-testid="stExpander"] details {
+    border: 1px solid #CBD5E1 !important;
+    background-color: #FFFFFF !important;
+    border-radius: 8px !important;
+}
+
+[data-testid="stExpander"] summary {
+    background-color: #EEF2F9 !important;
+}
+
+[data-testid="stExpander"] summary p,
+[data-testid="stExpander"] summary span {
+    color: #1E3A8A !important;
+}
